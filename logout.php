@@ -3,15 +3,14 @@
 include("config.php");
 session_start();
 
+header("X-Frame-Options: DENY");
+
 //destroy created session and redirect to login page
 
-$_SESSION['login_user']=NULL;
-header("Location: /vulnerable/index.html");
+$_SESSION['login_user'] = NULL;
+$_SESSION['csrf'] = NULL;
+session_destroy();
+
+header("Location: /index.php");
 
 ?>
-<script>
-if(top != window) {
-  top.location = window.location
-}
-
-</script>

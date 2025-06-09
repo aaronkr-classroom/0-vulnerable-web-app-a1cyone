@@ -1,41 +1,38 @@
 <html>
-<title>Vulnerable web application </title>
+<title>Secure web application </title>
 
 <?php header("X-Frame-Options: DENY"); ?><!-- Clickjacking 방지-->
 
 <body>
-  
-<script>
-if(top != window) {
-  top.location = window.location
-}
-
-</script>
   <center>
   <h1> WEB Application Security </h1>
   <h2> Secure WEB Application </h2>
-<h3> Registration form</h3>
-<form action="register.php" method="POST">
+  <h3> Registration form</h3>
 
-Username: <input type="text" name="username" value=""> </br>
-Password: <input type="password" name="passwd" value=""></br>
-Email: <input type="email" name="email" value=""></br>
-Gender : <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female
+  <form action="register.php" method="POST">
 
-<input type="submit" name="register" value="register">
-</form>
-<h3> Login form</h3>
-<form action="login.php" method="POST">
+    Username: <input type="text" name="username" value=""> </br>
+    Password: <input type="password" name="passwd" value=""></br>
+    Email: <input type="email" name="email" value=""></br>
+    Gender : <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female
 
-Username: <input type="text" name="username" value=""> </br>
-Password: <input type="password" name="passwd" value=""></br>
-<input type="submit" name="login" value="login">
-</form>
+    <!-- CSRF 방지 -->
+    <input type="submit" name="register" value="register">
+  </form>
 
-</br>
-<a href="forgotpassword.html" >Forgot Password </a>
+  <h3> Login form</h3>
+  <form action="login.php" method="POST">
 
-</center>
+    Username: <input type="text" name="username" value=""> </br>
+    Password: <input type="password" name="passwd" value=""></br>
+    <!-- CSRF 방지 -->
+    <input type="submit" name="login" value="login">
+  </form>
+
+  </br>
+  <a href="forgotpassword.php" >Forgot Password </a>
+
+  </center>
 </body>
 </html>
 
